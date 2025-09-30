@@ -123,7 +123,7 @@ const About = () => {
               </div>
               <div className="team-info">
                 <h3 className="team-name">Connor Bluestein</h3>
-                <p className="team-role">Founder & Chief Executive Officer</p>
+                <p className="team-role">Co-Founder & Chief Executive Officer</p>
                 <p className="team-bio">
                   Innovative cybersecurity leader pursuing Master's in Computer Science at Virginia Tech. 
                   Cyber Warfare Officer with extensive competition success including DEF CON victories.

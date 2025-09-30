@@ -54,7 +54,7 @@ const FounderOne = () => {
           </div>
           <div className="founder-info">
             <h1 className="founder-name">Connor Bluestein</h1>
-            <h2 className="founder-title">Founder & Chief Executive Officer</h2>
+            <h2 className="founder-title">Co-Founder & Chief Executive Officer</h2>
             <p className="founder-bio">
               Connor is an innovative cybersecurity leader and entrepreneur who founded CodeNav LLC in 2024. 
               Currently pursuing his Master's in Computer Science at Virginia Tech with a focus on Computer Security, 
@@ -109,7 +109,7 @@ const FounderOne = () => {
           <div className="experience-list">
             <div className="experience-item">
               <div className="experience-header">
-                <h4>Founder & CEO</h4>
+                <h4>Co-Founder & CEO</h4>
               </div>
               <p className="experience-company">CodeNav LLC</p>
               <p className="experience-description">
