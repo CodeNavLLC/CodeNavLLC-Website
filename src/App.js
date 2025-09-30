@@ -1,0 +1,47 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+
+// Components
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+// Pages
+import Home from './pages/Home';
+import Services from './pages/Services';
+import AIServices from './pages/AIServices';
+import Pentesting from './pages/Pentesting';
+import Development from './pages/Development';
+import CodeReview from './pages/CodeReview';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import FounderOne from './pages/FounderOne';
+import FounderTwo from './pages/FounderTwo';
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/ai-solutions" element={<AIServices />} />
+            <Route path="/services/pentesting" element={<Pentesting />} />
+            <Route path="/services/development" element={<Development />} />
+            <Route path="/services/code-review" element={<CodeReview />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/team/founder-one" element={<FounderOne />} />
+            <Route path="/team/founder-two" element={<FounderTwo />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
