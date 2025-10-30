@@ -19,8 +19,15 @@ const Header = () => {
       <div className="container">
         <nav className="nav">
           <Link to="/" className="logo">
-            <span className="logo-text">CodeNav</span>
-            <span className="logo-suffix">LLC</span>
+            <img 
+              src="/CodeNav_LLC_Logo.png" 
+              alt="CodeNav LLC Logo" 
+              className="logo-image"
+            />
+            <div className="logo-text-container">
+              <span className="logo-text">CodeNav</span>
+              <span className="logo-suffix">LLC</span>
+            </div>
           </Link>
 
           <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
