@@ -5,6 +5,7 @@ import './App.css';
 // Components
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Pages
 import Home from './pages/Home';
@@ -21,6 +22,7 @@ import FounderTwo from './pages/FounderTwo';
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Header />
         <main className="main-content">
@@ -44,4 +46,3 @@ function App() {
 }
 
 export default App;
-

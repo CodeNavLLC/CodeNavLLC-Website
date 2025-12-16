@@ -11,7 +11,7 @@ const About = () => {
           <div className="about-hero-content">
             <h1 className="about-title">About CodeNav LLC</h1>
             <p className="about-subtitle">
-              Pioneering the future of AI solutions and cybersecurity services
+              Pioneering the future of AI solutions and cybersecurity
             </p>
           </div>
         </div>
@@ -42,23 +42,79 @@ const About = () => {
                   provide enterprise-grade capabilities with uncompromising data privacy.
                 </p>
               </div>
-              <div className="story-stats">
-                <div className="stat-item">
-                  <span className="stat-number">15+</span>
-                  <span className="stat-label">CTF Victories</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">$12K</span>
-                  <span className="stat-label">First Year Revenue</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">1</span>
-                  <span className="stat-label">Year in Business</span>
-                </div>
-                <div className="stat-item">
-                  <span className="stat-number">100%</span>
-                  <span className="stat-label">Client Satisfaction</span>
-                </div>
+              <div className="story-founders">
+                <Link to="/team/founder-one" className="founder-link-card">
+                  <div className="founder-info">
+                    <span className="founder-name">Connor</span>
+                    <span className="founder-role">Co-Founder & CEO</span>
+                  </div>
+                  <span className="founder-arrow">→</span>
+                </Link>
+                <Link to="/team/founder-two" className="founder-link-card">
+                  <div className="founder-info">
+                    <span className="founder-name">Thomas</span>
+                    <span className="founder-role">Co-Founder & Lead Dev</span>
+                  </div>
+                  <span className="founder-arrow">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="section section-light">
+        <div className="container">
+          <h2 className="section-title text-center mb-12">Our Certifications</h2>
+          <div className="certifications-list">
+            <div className="cert-item">
+              <div className="cert-badge">OSEP</div>
+              <div className="cert-details">
+                <h3>Offensive Security Experienced Penetration Tester</h3>
+                <p>Advanced penetration testing and exploit development</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">OSCP+</div>
+              <div className="cert-details">
+                <h3>Offensive Security Certified Professional</h3>
+                <p>Industry-standard penetration testing certification</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">CEH</div>
+              <div className="cert-details">
+                <h3>Certified Ethical Hacker</h3>
+                <p>EC-Council ethical hacking certification</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">Sec+</div>
+              <div className="cert-details">
+                <h3>CompTIA Security+</h3>
+                <p>Foundational cybersecurity certification</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">MDA</div>
+              <div className="cert-details">
+                <h3>Maldev Academy</h3>
+                <p>Advanced malware development and evasion techniques</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">eJPT</div>
+              <div className="cert-details">
+                <h3>eLearnSecurity Junior Penetration Tester</h3>
+                <p>Entry-level penetration testing certification</p>
+              </div>
+            </div>
+            <div className="cert-item">
+              <div className="cert-badge">Google</div>
+              <div className="cert-details">
+                <h3>Google Professional IT Certification</h3>
+                <p>IT support and infrastructure fundamentals</p>
               </div>
             </div>
           </div>
@@ -90,67 +146,12 @@ const About = () => {
             </div>
 
             <div className="value-card">
-              <div className="value-icon">🚀</div>
-              <h3 className="value-title">Competition-Proven Excellence</h3>
-              <p className="value-description">
-                Our expertise is proven through first-place finishes in prestigious cybersecurity competitions 
-                including DEF CON Red Team Rumble and NSA Cyber Exercise. We bring competition-tested skills to every project.
-              </p>
-            </div>
-
-            <div className="value-card">
               <div className="value-icon">🤝</div>
               <h3 className="value-title">Local AI Deployment</h3>
               <p className="value-description">
                 We specialize in locally deployed AI solutions that give you complete control over your data. 
                 No cloud dependencies, no data sharing - just powerful AI running on your infrastructure.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="section">
-        <div className="container">
-          <h2 className="section-title text-center mb-12">Meet Our Leadership Team</h2>
-          <div className="team-grid">
-            <div className="team-card">
-              <div className="team-image">
-                <div className="team-avatar">
-                  <span>CB</span>
-                </div>
-              </div>
-              <div className="team-info">
-                <h3 className="team-name">Connor Bluestein</h3>
-                <p className="team-role">Co-Founder & Chief Executive Officer</p>
-                <p className="team-bio">
-                  Innovative cybersecurity leader pursuing Master's in Computer Science at Virginia Tech. 
-                  Cyber Warfare Officer with extensive competition success including DEF CON victories.
-                </p>
-                <Link to="/team/founder-one" className="team-link">
-                  View Full Profile →
-                </Link>
-              </div>
-            </div>
-
-            <div className="team-card">
-              <div className="team-image">
-                <div className="team-avatar">
-                  <span>TR</span>
-                </div>
-              </div>
-              <div className="team-info">
-                <h3 className="team-name">Thomas Rydzewski</h3>
-                <p className="team-role">Co-Founder & Lead Developer</p>
-                <p className="team-bio">
-                  Full-stack developer and penetration tester with Master's in Computer Science from Virginia Tech. 
-                  Holds OSEP and OSCP certifications with expertise in malware development and red team operations.
-                </p>
-                <Link to="/team/founder-two" className="team-link">
-                  View Full Profile →
-                </Link>
-              </div>
             </div>
           </div>
         </div>

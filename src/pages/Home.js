@@ -1,16 +1,117 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    let particles = [];
+
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Create particles
+    const createParticles = () => {
+      particles = [];
+      const particleCount = Math.min(80, Math.floor(window.innerWidth / 15));
+      
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.5 + 0.2,
+        });
+      }
+    };
+
+    createParticles();
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Update and draw particles
+      particles.forEach((particle, i) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        // Wrap around edges
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0, 212, 255, ${particle.opacity})`;
+        ctx.fill();
+
+        // Draw connections
+        particles.forEach((other, j) => {
+          if (i === j) return;
+          const dx = particle.x - other.x;
+          const dy = particle.y - other.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(other.x, other.y);
+            ctx.strokeStyle = `rgba(0, 212, 255, ${0.15 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        });
+      });
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
+        {/* Animated background elements */}
+        <div className="hero-grid-bg"></div>
+        <div className="hero-orbs">
+          <div className="orb orb-1"></div>
+          <div className="orb orb-2"></div>
+          <div className="orb orb-3"></div>
+        </div>
+        <div className="scan-line"></div>
+        <canvas ref={canvasRef} className="hero-canvas"></canvas>
+        
         <div className="container">
           <div className="hero-content">
+            <div className="hero-badge">
+              <span className="hero-badge-dot"></span>
+              <span>AI-Powered Solutions & Security</span>
+            </div>
+            
             <h1 className="hero-title">
-              Next-Generation <span className="text-primary">AI Solutions</span><br />
+              Next-Generation <span className="highlight">AI Solutions</span><br />
               & Security Services
             </h1>
             <p className="hero-subtitle">
@@ -41,7 +142,7 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-2">
-            <div className="card service-card">
+            <div className="card service-card service-card-cyan">
               <div className="card-icon">🤖</div>
               <h3 className="card-title">Custom AI Solutions</h3>
               <p className="card-description">
@@ -54,7 +155,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="card service-card">
+            <div className="card service-card service-card-red">
               <div className="card-icon">🛡️</div>
               <h3 className="card-title">Penetration Testing</h3>
               <p className="card-description">
@@ -67,7 +168,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="card service-card">
+            <div className="card service-card service-card-green">
               <div className="card-icon">💻</div>
               <h3 className="card-title">Software Development</h3>
               <p className="card-description">
@@ -80,7 +181,7 @@ const Home = () => {
               </Link>
             </div>
 
-            <div className="card service-card">
+            <div className="card service-card service-card-purple">
               <div className="card-icon">🔍</div>
               <h3 className="card-title">Code Review</h3>
               <p className="card-description">
@@ -97,7 +198,7 @@ const Home = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section section-light why-choose-us">
+      <section className="section why-choose-us">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="section-title">Why Choose CodeNav LLC?</h2>
@@ -161,4 +262,3 @@ const Home = () => {
 };
 
 export default Home;
-
