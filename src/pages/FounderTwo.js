@@ -11,6 +11,12 @@ const FounderTwo = () => {
       description: "Advanced penetration testing certification focusing on evasion techniques and advanced exploitation"
     },
     {
+      name: "Certified Red Team Operator (CRTO)",
+      issuer: "Zero-Point Security",
+      year: "",
+      description: "Red team operations certification covering adversary simulation and C2 frameworks"
+    },
+    {
       name: "Offensive Security Certified Professional+ (OSCP)",
       issuer: "Offensive Security",
       year: "",

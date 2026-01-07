@@ -76,6 +76,13 @@ const About = () => {
               </div>
             </div>
             <div className="cert-item">
+              <div className="cert-badge">CRTO</div>
+              <div className="cert-details">
+                <h3>Certified Red Team Operator</h3>
+                <p>Zero-Point Security red team operations certification</p>
+              </div>
+            </div>
+            <div className="cert-item">
               <div className="cert-badge">OSCP+</div>
               <div className="cert-details">
                 <h3>Offensive Security Certified Professional</h3>
