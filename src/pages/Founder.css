@@ -36,6 +36,35 @@
   box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
 }
 
+.founder-photo-wrap {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  --photo-scale: 1.06;
+  --photo-y: 12%;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+  border: 3px solid rgba(0, 212, 255, 0.3);
+}
+
+.founder-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center var(--photo-y);
+  transform: scale(var(--photo-scale));
+}
+
+.founder-photo-wrap--connor {
+  --photo-scale: 1.2;
+  --photo-y: 10%;
+}
+
+.founder-photo-wrap--thomas {
+  --photo-scale: 1.00;
+  --photo-y: 14%;
+}
+
 .founder-info {
   display: flex;
   flex-direction: column;

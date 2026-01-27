@@ -35,8 +35,8 @@ function App() {
             <Route path="/services/code-review" element={<CodeReview />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/team/founder-one" element={<FounderOne />} />
-            <Route path="/team/founder-two" element={<FounderTwo />} />
+            <Route path="/team/connor" element={<FounderOne />} />
+            <Route path="/team/thomas" element={<FounderTwo />} />
           </Routes>
         </main>
         <Footer />

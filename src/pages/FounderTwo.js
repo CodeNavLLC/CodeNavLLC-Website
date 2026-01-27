@@ -78,8 +78,12 @@ const FounderTwo = () => {
         {/* Header Section */}
         <div className="founder-header">
           <div className="founder-image">
-            <div className="placeholder-avatar">
-              <span>TR</span>
+            <div className="founder-photo-wrap founder-photo-wrap--thomas">
+              <img
+                src="/thomas.PNG"
+                alt="Thomas Rydzewski"
+                className="founder-photo-img founder-photo-img--thomas"
+              />
             </div>
           </div>
           <div className="founder-info">
@@ -249,7 +253,7 @@ const FounderTwo = () => {
             <Link to="/contact" className="btn btn-primary">
               Schedule a Consultation
             </Link>
-            <Link to="/team/founder-one" className="btn btn-secondary">
+            <Link to="/team/connor" className="btn btn-secondary">
               Meet Our CEO
             </Link>
           </div>

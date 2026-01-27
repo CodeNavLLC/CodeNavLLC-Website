@@ -3,6 +3,51 @@ import { Link } from 'react-router-dom';
 import './About.css';
 
 const About = () => {
+  const teamCertifications = [
+    {
+      id: 'osep',
+      abbr: 'OSEP',
+      title: 'Offensive Security Experienced Penetration Tester',
+      description: 'Advanced penetration testing and exploit development',
+      logoSrc: '/certs/osep.png',
+    },
+    {
+      id: 'crto',
+      abbr: 'CRTO',
+      title: 'Certified Red Team Operator',
+      description: 'Zero-Point Security red team operations certification',
+      logoSrc: '/certs/crto.png',
+    },
+    {
+      id: 'oscp',
+      abbr: 'OSCP',
+      title: 'Offensive Security Certified Professional',
+      description: 'Industry-standard penetration testing certification',
+      logoSrc: '/certs/oscp.png',
+    },
+    {
+      id: 'ceh',
+      abbr: 'CEH',
+      title: 'Certified Ethical Hacker (Practical)',
+      description: 'EC-Council ethical hacking certification',
+      logoSrc: '/certs/CEHPRACTICAL_5FB43496785F.png',
+    },
+    {
+      id: 'secplus',
+      abbr: 'Sec+',
+      title: 'CompTIA Security+',
+      description: 'Foundational cybersecurity certification',
+      logoSrc: '/certs/Security+-jpg.jpg',
+    },
+    {
+      id: 'ejpt',
+      abbr: 'eJPT',
+      title: 'eLearnSecurity Junior Penetration Tester',
+      description: 'Entry-level penetration testing certification',
+      logoSrc: '/certs/ejpt.png',
+    },
+  ];
+
   return (
     <div className="about-page">
       {/* Hero Section */}
@@ -17,12 +62,12 @@ const About = () => {
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="section">
+      {/* Team + Story (side-by-side) */}
+      <section className="section team-story-section">
         <div className="container">
-          <div className="story-content">
-            <h2 className="section-title text-center mb-12">Our Story</h2>
-            <div className="story-grid">
+          <div className="team-story-grid">
+            <div className="team-story-story">
+              <h2 className="section-title mb-12">Our Story</h2>
               <div className="story-text">
                 <p className="story-paragraph">
                   Founded in 2024 by Connor Bluestein and Thomas Rydzewski, CodeNav LLC emerged from a shared vision 
@@ -42,20 +87,41 @@ const About = () => {
                   provide enterprise-grade capabilities with uncompromising data privacy.
                 </p>
               </div>
-              <div className="story-founders">
-                <Link to="/team/founder-one" className="founder-link-card">
-                  <div className="founder-info">
-                    <span className="founder-name">Connor</span>
-                    <span className="founder-role">Co-Founder & CEO</span>
+            </div>
+
+            <div className="team-story-team">
+              <h2 className="section-title mb-12">Our Team</h2>
+              <div className="team-stack">
+                <Link to="/team/connor" className="team-card team-card-link">
+                  <div className="team-image">
+                    <div className="team-photo-wrap team-photo-wrap--connor">
+                      <img
+                        src="/connor.jpeg"
+                        alt="Connor Bluestein"
+                        className="team-photo-img team-photo-img--connor"
+                      />
+                    </div>
                   </div>
-                  <span className="founder-arrow">→</span>
+                  <div className="team-info">
+                    <h3 className="team-name">Connor Bluestein</h3>
+                    <p className="team-role">Co-Founder & CEO</p>
+                  </div>
                 </Link>
-                <Link to="/team/founder-two" className="founder-link-card">
-                  <div className="founder-info">
-                    <span className="founder-name">Thomas</span>
-                    <span className="founder-role">Co-Founder & Lead Dev</span>
+
+                <Link to="/team/thomas" className="team-card team-card-link">
+                  <div className="team-image">
+                    <div className="team-photo-wrap team-photo-wrap--thomas">
+                      <img
+                        src="/thomas.PNG"
+                        alt="Thomas Rydzewski"
+                        className="team-photo-img team-photo-img--thomas"
+                      />
+                    </div>
                   </div>
-                  <span className="founder-arrow">→</span>
+                  <div className="team-info">
+                    <h3 className="team-name">Thomas Rydzewski</h3>
+                    <p className="team-role">Co-Founder & Lead Dev</p>
+                  </div>
                 </Link>
               </div>
             </div>
@@ -66,64 +132,28 @@ const About = () => {
       {/* Certifications Section */}
       <section className="section section-light">
         <div className="container">
-          <h2 className="section-title text-center mb-12">Our Certifications</h2>
+          <h2 className="section-title text-center mb-12">Our Team&apos;s Certifications</h2>
           <div className="certifications-list">
-            <div className="cert-item">
-              <div className="cert-badge">OSEP</div>
-              <div className="cert-details">
-                <h3>Offensive Security Experienced Penetration Tester</h3>
-                <p>Advanced penetration testing and exploit development</p>
+            {teamCertifications.map((cert) => (
+              <div key={cert.id} className="cert-item">
+                <div className="cert-badge cert-badge--logo">
+                  <img
+                    src={cert.logoSrc}
+                    alt={`${cert.title} logo`}
+                    className="cert-logo"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                    }}
+                  />
+                  <span className="cert-badge-fallback">{cert.abbr}</span>
+                </div>
+                <div className="cert-details">
+                  <h3>{cert.title}</h3>
+                  <p>{cert.description}</p>
+                </div>
               </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">CRTO</div>
-              <div className="cert-details">
-                <h3>Certified Red Team Operator</h3>
-                <p>Zero-Point Security red team operations certification</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">OSCP+</div>
-              <div className="cert-details">
-                <h3>Offensive Security Certified Professional</h3>
-                <p>Industry-standard penetration testing certification</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">CEH</div>
-              <div className="cert-details">
-                <h3>Certified Ethical Hacker</h3>
-                <p>EC-Council ethical hacking certification</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">Sec+</div>
-              <div className="cert-details">
-                <h3>CompTIA Security+</h3>
-                <p>Foundational cybersecurity certification</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">MDA</div>
-              <div className="cert-details">
-                <h3>Maldev Academy</h3>
-                <p>Advanced malware development and evasion techniques</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">eJPT</div>
-              <div className="cert-details">
-                <h3>eLearnSecurity Junior Penetration Tester</h3>
-                <p>Entry-level penetration testing certification</p>
-              </div>
-            </div>
-            <div className="cert-item">
-              <div className="cert-badge">Google</div>
-              <div className="cert-details">
-                <h3>Google Professional IT Certification</h3>
-                <p>IT support and infrastructure fundamentals</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -147,7 +177,7 @@ const About = () => {
               <h3 className="value-title">Security First</h3>
               <p className="value-description">
                 Every solution we deliver prioritizes security and privacy. Our team's military background 
-                and elite penetration testing certifications (OSEP, OSCP, CEH) ensure enterprise-grade 
+                and elite penetration testing certifications (OSEP, CRTO, OSCP) ensure enterprise-grade 
                 security in every implementation.
               </p>
             </div>
