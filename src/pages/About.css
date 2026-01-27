@@ -502,7 +502,7 @@
   }
 
   .about-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .about-subtitle {
@@ -514,15 +514,41 @@
   }
 
   .founder-link-card {
-    padding: 1.25rem;
+    padding: 1rem;
+    min-height: 44px;
   }
 
   .values-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    padding: 2rem;
   }
 
   .certifications-list {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cert-item {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .cert-badge {
+    min-width: 110px;
+    height: 110px;
+  }
+
+  .team-photo-wrap {
+    width: 160px;
+    height: 160px;
+  }
+
+  .team-card {
+    padding: 2rem;
   }
 
   .cta-title {
@@ -541,20 +567,86 @@
 }
 
 @media (max-width: 480px) {
+  .about-hero {
+    padding: 5rem 0 2rem;
+  }
+
   .about-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
   }
 
   .story-text {
     font-size: 1rem;
   }
 
+  .story-paragraph {
+    margin-bottom: 1rem;
+  }
+
+  .team-story-grid {
+    gap: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cert-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .cert-badge {
+    min-width: 100px;
+    height: 100px;
+  }
+
+  .cert-details h3 {
+    font-size: 1rem;
+  }
+
+  .cert-details p {
+    font-size: 0.85rem;
+  }
+
   .value-card,
   .team-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-title {
+    font-size: 1.1rem;
+  }
+
+  .team-photo-wrap {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-name {
+    font-size: 1.25rem;
+  }
+
+  .team-role {
+    font-size: 0.9rem;
   }
 
   .cta-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
   }
 }

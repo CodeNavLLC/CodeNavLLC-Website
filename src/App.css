@@ -219,10 +219,18 @@
 }
 
 @media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+
   .grid-cols-4,
   .grid-cols-3,
   .grid-cols-2 { 
     grid-template-columns: repeat(1, 1fr); 
+  }
+
+  .grid {
+    gap: 1.5rem;
   }
   
   .hero-title {
@@ -231,6 +239,98 @@
   
   .section-title {
     font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+    min-height: 44px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .card-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+  }
+
+  .mb-12 {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 60px;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    width: 100%;
+  }
+
+  .card {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+  }
+
+  .card-icon {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.1rem;
+    border-radius: 0.625rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-description {
+    font-size: 0.9rem;
+  }
+
+  .mb-12 {
+    margin-bottom: 1.5rem;
   }
 }
 

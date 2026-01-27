@@ -83,4 +83,27 @@ img {
   .container {
     padding: 0 1rem;
   }
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  html {
+    font-size: 15px;
+  }
+
+  /* Improve touch scrolling on iOS */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
 }
