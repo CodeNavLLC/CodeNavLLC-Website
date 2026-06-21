@@ -7,7 +7,7 @@
 
 .main-content {
   flex: 1;
-  padding-top: 80px; /* Account for fixed header */
+  padding-top: var(--header-h); /* fixed header height */
 }
 
 /* Dark Mode Design System - CodeNav Logo Colors */
@@ -31,11 +31,37 @@
   --border-default: rgba(0, 212, 255, 0.15);
   --border-hover: rgba(0, 212, 255, 0.3);
   --border-primary: rgba(0, 212, 255, 0.4);
-  
+  /* Neutral resting border (cyan reserved for hover/active) */
+  --border-neutral: rgba(148, 163, 184, 0.14);
+
+  /* Radius scale */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* ===== Editorial v2 — only logo colors + neutrals ===== */
+  --navy: #0a1628;        /* logo navy: dark canvas + ink on paper */
+  --navy-soft: #13203a;   /* raised dark surface */
+  --cyan: #00d4ff;        /* logo cyan: accent on DARK only */
+  --cyan-deep: #0a6c88;   /* darkened logo-cyan: AA-safe cyan on paper */
+  --paper: #f5f4ef;       /* warm off-white canvas */
+  --paper-2: #ece9e1;     /* alt paper */
+  --ink: #0a1628;         /* text on paper */
+  --ink-soft: #43526d;    /* muted text on paper */
+  --snow: #eef2f6;        /* text on navy */
+  --snow-soft: #9fb0c4;   /* muted text on navy */
+  --rule-paper: rgba(10, 22, 40, 0.14);
+  --rule-navy: rgba(238, 242, 246, 0.16);
+  --radius: 2px;          /* near-square editorial */
+  --header-h: 76px;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Sora', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Menlo', monospace;
+
   /* Text colors */
   --text-primary: #ffffff;
   --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
+  --text-tertiary: #8d9bb0; /* raised for WCAG AA: >=4.5:1 on --bg-elevated */
   --text-muted: #475569;
   
   /* Accent colors */
@@ -44,11 +70,6 @@
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
   --accent-violet: #8b5cf6;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, #0891b2 100%);
-  --gradient-mesh: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 255, 0.2), transparent);
-  --gradient-glow: radial-gradient(circle at 50% 50%, var(--primary-glow), transparent 60%);
   
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -78,15 +99,12 @@
 
 /* Typography */
 .hero-title {
-  font-size: 4rem;
+  font-size: clamp(1.85rem, 6vw, 4rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.08;
   margin-bottom: 1.5rem;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
 }
 
 .hero-subtitle {
@@ -134,7 +152,6 @@
   background: var(--primary-color);
   color: #0a1628;
   border-color: var(--primary-color);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
   font-weight: 600;
 }
 
@@ -142,14 +159,12 @@
   background: var(--primary-light);
   border-color: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
   border: 1px solid var(--border-default);
-  backdrop-filter: blur(8px);
 }
 
 .btn-secondary:hover {
@@ -161,12 +176,11 @@
 /* Cards */
 .card {
   background: var(--bg-card);
-  border-radius: 1rem;
+  border-radius: var(--radius-lg);
   padding: 2rem;
   box-shadow: var(--shadow-md);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-neutral);
 }
 
 .card:hover {
@@ -176,18 +190,21 @@
   background: var(--bg-card-hover);
 }
 
-.card-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  background: linear-gradient(135deg, #00d4ff, #0891b2);
-  border-radius: 0.875rem;
-  display: flex;
+/* Legacy icon tile (kept for any remaining references; editorial pages do not use it) */
+.card-icon,
+.icon-tile {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: #0a1628;
-  font-size: 1.5rem;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  color: var(--primary-color);
+  flex-shrink: 0;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .card-title {
@@ -220,7 +237,7 @@
 
 @media (max-width: 768px) {
   .main-content {
-    padding-top: 70px;
+    padding-top: var(--header-h);
   }
 
   .grid-cols-4,
@@ -278,7 +295,7 @@
 
 @media (max-width: 480px) {
   .main-content {
-    padding-top: 60px;
+    padding-top: var(--header-h);
   }
 
   .hero-title {
@@ -366,33 +383,3 @@
 .mt-8 { margin-top: 2rem; }
 .mt-12 { margin-top: 3rem; }
 
-/* Animated gradient background */
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Glow effects */
-.glow {
-  position: relative;
-}
-
-.glow::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  background: var(--gradient-primary);
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-  filter: blur(20px);
-}
-
-.glow:hover::before {
-  opacity: 0.5;
-}

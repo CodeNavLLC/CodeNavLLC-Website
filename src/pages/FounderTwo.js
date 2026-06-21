@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, ExternalLink, Check, Trophy, BookOpen } from 'lucide-react';
+import usePageTitle from '../usePageTitle';
 import './Founder.css';
 
 const FounderTwo = () => {
+  usePageTitle('Thomas Rydzewski');
   const certifications = [
     {
       name: "Offensive Security Experienced Penetration Tester (OSEP)",
@@ -98,10 +101,10 @@ const FounderTwo = () => {
             </p>
             <div className="founder-contact">
               <a href="mailto:thomas@codenavllc.com" className="contact-link">
-                📧 thomas@codenavllc.com
+                <Mail size={18} aria-hidden="true" /> thomas@codenavllc.com
               </a>
-              <a href="https://linkedin.com/in/thomas-r-4b770822b" className="contact-link">
-                🔗 LinkedIn
+              <a href="https://linkedin.com/in/thomas-r-4b770822b" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <ExternalLink size={18} aria-hidden="true" /> LinkedIn
               </a>
             </div>
           </div>
@@ -113,7 +116,7 @@ const FounderTwo = () => {
           <div className="expertise-grid">
             {expertise.map((skill, index) => (
               <div key={index} className="expertise-item">
-                <span className="expertise-icon">✓</span>
+                <span className="expertise-icon"><Check size={14} aria-hidden="true" /></span>
                 {skill}
               </div>
             ))}
@@ -220,7 +223,7 @@ const FounderTwo = () => {
           <h3 className="section-heading">Competition Achievements & Research</h3>
           <div className="achievements-grid">
             <div className="achievement-category">
-              <h4 className="achievement-title">🏆 CTF Competition Results</h4>
+              <h4 className="achievement-title"><Trophy size={20} aria-hidden="true" /> CTF Competition Results</h4>
               <ul className="achievement-list">
                 <li>1st Place - ARMY CENTRAL COMMAND Best Cyber Warrior 2023</li>
                 <li>1st Place - TracerFire 2023</li>
@@ -232,7 +235,7 @@ const FounderTwo = () => {
               </ul>
             </div>
             <div className="achievement-category">
-              <h4 className="achievement-title">📚 Published Research</h4>
+              <h4 className="achievement-title"><BookOpen size={20} aria-hidden="true" /> Published Research</h4>
               <ul className="achievement-list">
                 <li><strong>Perp Framework:</strong> A scalable, stand-alone, purple team competition framework with individual subnets deployed using docker compose</li>
                 <li>Published research available at: whitehatginger.com/tools-ive-made/perp</li>

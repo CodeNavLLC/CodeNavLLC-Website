@@ -30,16 +30,21 @@ const Header = () => {
             </div>
           </Link>
 
-          <div className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
-            <Link 
-              to="/" 
+          <div id="primary-nav" className={`nav-menu ${isMenuOpen ? 'nav-menu-open' : ''}`}>
+            <Link
+              to="/"
               className={`nav-link ${isActive('/') && location.pathname === '/' ? 'nav-link-active' : ''}`}
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <div className="nav-dropdown">
-              <span className={`nav-link ${isActive('/services') ? 'nav-link-active' : ''}`}>
+              <span
+                className={`nav-link ${isActive('/services') ? 'nav-link-active' : ''}`}
+                role="button"
+                tabIndex={0}
+                aria-haspopup="true"
+              >
                 Services
               </span>
               <div className="dropdown-content">
@@ -65,10 +70,16 @@ const Header = () => {
             </Link>
           </div>
 
-          <button className="mobile-menu-toggle" onClick={toggleMenu}>
-            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}></span>
-            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}></span>
-            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`}></span>
+          <button
+            className="mobile-menu-toggle"
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isMenuOpen}
+            aria-controls="primary-nav"
+          >
+            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`} aria-hidden="true"></span>
+            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`} aria-hidden="true"></span>
+            <span className={`hamburger ${isMenuOpen ? 'hamburger-open' : ''}`} aria-hidden="true"></span>
           </button>
         </nav>
       </div>

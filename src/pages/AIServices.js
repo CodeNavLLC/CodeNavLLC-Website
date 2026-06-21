@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../usePageTitle';
 import './ServicePage.css';
 
 const AIServices = () => {
+  usePageTitle('Custom AI Solutions');
+
   return (
     <div className="service-page">
       <section className="service-hero ai-hero">
         <div className="container">
           <div className="service-hero-content">
+            <span className="service-hero-eyebrow">Service / Custom AI</span>
             <h1 className="service-hero-title">Custom AI Solutions</h1>
             <p className="service-hero-subtitle">
-              Harness the power of artificial intelligence with locally deployed, 
-              custom solutions designed specifically for your business needs.
+              Local models trained for specific, targeted tasks and run on your own
+              infrastructure, so your data never leaves your network.
             </p>
           </div>
         </div>
@@ -21,11 +25,13 @@ const AIServices = () => {
         <div className="container">
           <div className="service-content-grid">
             <div className="service-main-content">
-              <h2>Transform Your Business with Local AI</h2>
+              <h2>Local models, trained for your tasks</h2>
               <p>
-                Our custom AI solutions give you the power of advanced artificial intelligence 
-                while maintaining complete control over your data. We specialize in local AI 
-                deployments that ensure privacy, security, and compliance with your industry requirements.
+                We build and train local models for the specific, targeted jobs your business
+                actually needs, not a general-purpose chatbot pointed at your data. A focused
+                model is smaller, faster, and easier to reason about than a do-everything system,
+                and it runs entirely on your own infrastructure so you keep privacy, security,
+                and compliance.
               </p>
 
               <h3>What We Offer</h3>
@@ -40,7 +46,7 @@ const AIServices = () => {
                 <li>Ongoing AI model training and improvement</li>
               </ul>
 
-              <h3>Why Choose Local AI?</h3>
+              <h3>Why local AI</h3>
               <p>
                 Local AI deployment offers significant advantages including enhanced data privacy, 
                 reduced latency, compliance with data regulations, and cost-effective scaling. 
@@ -52,11 +58,11 @@ const AIServices = () => {
               <div className="service-card">
                 <h3>Key Benefits</h3>
                 <ul>
-                  <li>✅ Complete data privacy</li>
-                  <li>✅ No ongoing API costs</li>
-                  <li>✅ Customizable to your needs</li>
-                  <li>✅ Regulatory compliance</li>
-                  <li>✅ Offline functionality</li>
+                  <li>Complete data privacy</li>
+                  <li>No ongoing API costs</li>
+                  <li>Customizable to your needs</li>
+                  <li>Regulatory compliance</li>
+                  <li>Offline functionality</li>
                 </ul>
               </div>
 

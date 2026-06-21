@@ -1,99 +1,82 @@
 import React from 'react';
+import { Mail } from 'lucide-react';
+import usePageTitle from '../usePageTitle';
 import './Contact.css';
 
+const faqs = [
+  {
+    q: 'How quickly can you start?',
+    a: 'Usually within one to two weeks of a signed engagement, depending on scope and current load.',
+  },
+  {
+    q: 'Do you work with small teams?',
+    a: 'Yes. We work with everyone from early-stage startups to enterprise teams, and scope the work to fit.',
+  },
+  {
+    q: 'How do you handle data security?',
+    a: 'Security is the default, not an add-on. We can run inside your existing compliance framework, and our AI work is built to keep your data on your own infrastructure.',
+  },
+  {
+    q: 'Do you offer ongoing support?',
+    a: 'Yes. We offer maintenance and support arrangements so what we build keeps working after launch.',
+  },
+  {
+    q: 'What is the best way to reach you?',
+    a: 'Email info@codenavllc.com. We usually reply within a day and will tell you honestly whether we are the right fit.',
+  },
+];
+
 const Contact = () => {
+  usePageTitle('Contact');
 
   return (
-    <div className="contact-page">
-      {/* Hero Section */}
-      <section className="contact-hero">
+    <div className="contact-ed">
+      {/* Hero */}
+      <section className="section section--navy contact-hero-ed">
         <div className="container">
-          <div className="contact-hero-content">
-            <h1 className="contact-title">Get In Touch</h1>
-            <p className="contact-subtitle">
-              Ready to transform your business with AI solutions and cybersecurity services? 
-              Let's discuss your project and explore how we can help you achieve your goals.
-            </p>
-          </div>
+          <span className="eyebrow">Contact</span>
+          <h1 className="display display--hero contact-hero-ed__title">
+            Tell us what you're building. Or what you need tested.
+          </h1>
+          <p className="lead">
+            Send a note with a little context and we'll get back to you, usually within a day.
+          </p>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="section contact-content">
+      {/* Reach us */}
+      <section className="section section--paper">
         <div className="container">
-          <div className="contact-info-center">
-            <div className="contact-info-section">
-              <h2 className="info-title">Contact Information</h2>
-              
-              <div className="contact-methods">
-                <div className="contact-method">
-                  <div className="method-icon">📧</div>
-                  <div className="method-content">
-                    <h3>Email</h3>
-                    <p>info@codenavllc.com</p>
-                    <p className="method-note">We typically respond within 24 hours</p>
-                  </div>
-                </div>
+          <span className="eyebrow"><span className="num">01</span> Reach us</span>
+          <a className="contact-email" href="mailto:info@codenavllc.com">
+            <Mail size={22} aria-hidden="true" /> info@codenavllc.com
+          </a>
+          <dl className="contact-meta">
+            <div className="contact-meta__row">
+              <dt>Location</dt>
+              <dd>Remote-first, working with clients worldwide.</dd>
+            </div>
+            <div className="contact-meta__row">
+              <dt>Response</dt>
+              <dd>Typically within one business day.</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
 
-                <div className="contact-method">
-                  <div className="method-icon">📍</div>
-                  <div className="method-content">
-                    <h3>Location</h3>
-                    <p>Remote-First Company</p>
-                    <p className="method-note">Serving clients worldwide</p>
-                  </div>
-                </div>
+      {/* FAQ */}
+      <section className="section section--navy">
+        <div className="container">
+          <span className="eyebrow"><span className="num">02</span> Questions</span>
+          <h2 className="display display--section section-head">Frequently asked</h2>
+          <dl className="faq-ed">
+            {faqs.map((f) => (
+              <div key={f.q} className="faq-ed__row">
+                <dt className="faq-ed__q">{f.q}</dt>
+                <dd className="faq-ed__a">{f.a}</dd>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="section section-light">
-        <div className="container">
-          <h2 className="section-title text-center mb-12">Frequently Asked Questions</h2>
-          <div className="faq-grid">
-            <div className="faq-item">
-              <h3 className="faq-question">How quickly can you start on a project?</h3>
-              <p className="faq-answer">
-                We can typically begin new projects within 1-2 weeks of contract signing, 
-                depending on project scope and our current capacity.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3 className="faq-question">Do you work with small businesses?</h3>
-              <p className="faq-answer">
-                Absolutely! We work with organizations of all sizes, from startups to 
-                enterprise companies. Our solutions are tailored to fit your budget and needs.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3 className="faq-question">What is your approach to data security?</h3>
-              <p className="faq-answer">
-                Security is our top priority. All projects follow strict security protocols, 
-                and we can work within your existing compliance frameworks.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3 className="faq-question">Do you offer ongoing support?</h3>
-              <p className="faq-answer">
-                Yes, we provide various support packages including maintenance, updates, 
-                and technical support to ensure your solutions continue to perform optimally.
-              </p>
-            </div>
-
-            <div className="faq-item">
-              <h3 className="faq-question">How can I get in touch?</h3>
-              <p className="faq-answer">
-                The best way to reach us is via email at info@codenavllc.com. We typically 
-                respond within 24 hours and can schedule a consultation to discuss your needs.
-              </p>
-            </div>
-          </div>
+            ))}
+          </dl>
         </div>
       </section>
     </div>
@@ -101,4 +84,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

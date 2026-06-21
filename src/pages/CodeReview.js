@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../usePageTitle';
 import './ServicePage.css';
 
 const CodeReview = () => {
+  usePageTitle('Code Review');
+
   return (
     <div className="service-page">
       <section className="service-hero review-hero">
         <div className="container">
           <div className="service-hero-content">
-            <h1 className="service-hero-title">Code Review Services</h1>
+            <span className="service-hero-eyebrow">Service / Code Review</span>
+            <h1 className="service-hero-title">Code Review</h1>
             <p className="service-hero-subtitle">
-              Expert analysis of your codebase to improve quality, security, and performance 
-              while ensuring adherence to industry best practices.
+              A second set of expert eyes on your codebase, for security, performance, and
+              maintainability, with fixes your team can act on.
             </p>
           </div>
         </div>
@@ -23,9 +27,9 @@ const CodeReview = () => {
             <div className="service-main-content">
               <h2>Optimize Your Code Quality</h2>
               <p>
-                Our comprehensive code review services help you identify issues, improve 
-                performance, and ensure your codebase follows industry best practices. 
-                We provide actionable insights that make your code more maintainable and secure.
+                Our code review helps you identify issues, improve performance, and keep your
+                codebase following solid practices. We provide actionable insights that make your
+                code more maintainable and secure.
               </p>
 
               <h3>Review Services</h3>
@@ -52,11 +56,11 @@ const CodeReview = () => {
               <div className="service-card">
                 <h3>Key Benefits</h3>
                 <ul>
-                  <li>🔍 Improved code quality</li>
-                  <li>🔍 Enhanced security</li>
-                  <li>🔍 Better performance</li>
-                  <li>🔍 Reduced technical debt</li>
-                  <li>🔍 Team knowledge transfer</li>
+                  <li>Improved code quality</li>
+                  <li>Enhanced security</li>
+                  <li>Better performance</li>
+                  <li>Reduced technical debt</li>
+                  <li>Team knowledge transfer</li>
                 </ul>
               </div>
 
