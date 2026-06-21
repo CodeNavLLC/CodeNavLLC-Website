@@ -1,0 +1,133 @@
+/* ============================================================
+   Editorial design system (v2) — opt-in primitives.
+   Scoped to NEW classes only; does NOT redefine .btn/.card/etc.
+   Each surface (.section--navy/--paper) owns its text + accent
+   so the mixed canvas inherits correctly.
+   ============================================================ */
+
+/* Surfaces */
+.section {
+  padding: clamp(4rem, 9vw, 8rem) 0;
+  position: relative;
+}
+.section--navy {
+  background: var(--navy);
+  color: var(--snow);
+  --rule-c: var(--rule-navy);
+  --muted: var(--snow-soft);
+  --accent: var(--cyan);          /* bright cyan is fine on dark */
+  --ink-on-surface: var(--snow);
+}
+.section--paper {
+  background: var(--paper);
+  color: var(--ink);
+  --rule-c: var(--rule-paper);
+  --muted: var(--ink-soft);
+  --accent: var(--cyan-deep);     /* darkened cyan = AA on paper */
+  --ink-on-surface: var(--ink);
+}
+.section--paper-2 { background: var(--paper-2); }
+
+/* Keyboard focus visible on BOTH canvases */
+.section--paper :focus-visible { outline-color: var(--cyan-deep); }
+.section--navy :focus-visible { outline-color: var(--cyan); }
+
+/* Eyebrow: mono label, optional leading 01/02 number */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  color: var(--muted);
+}
+.section--navy .eyebrow { color: var(--cyan); }      /* cyan reads on navy */
+.eyebrow .num { color: var(--muted); }
+
+/* Serif display */
+.display {
+  font-family: var(--font-display);
+  font-weight: 360;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  overflow-wrap: break-word;
+}
+.display--hero { font-size: clamp(2.4rem, 6vw, 6rem); line-height: 1.02; letter-spacing: -0.025em; }
+.display--section { font-size: clamp(1.9rem, 3.4vw, 3.2rem); }
+.accent-word { color: var(--cyan); font-style: normal; }   /* used on navy hero */
+
+/* Lead paragraph */
+.lead { font-size: 1.18rem; line-height: 1.65; color: var(--muted); max-width: 48ch; }
+
+/* Hairline */
+.rule { height: 1px; background: var(--rule-c, var(--rule-paper)); border: 0; margin: 0; }
+
+/* Arrow link (mono) */
+.link-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.2rem;
+  transition: gap 0.2s ease;
+  color: var(--ink-on-surface);
+}
+.section--navy .link-arrow { color: var(--cyan); }   /* cyan on navy */
+.link-arrow:hover { gap: 0.85rem; }
+
+/* Minimal button (separate from legacy .btn) */
+.btn-editorial {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  border: 1px solid;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.section--navy .btn-editorial { color: var(--navy); background: var(--cyan); border-color: var(--cyan); }
+.section--navy .btn-editorial:hover { background: var(--snow); border-color: var(--snow); }
+.section--paper .btn-editorial { color: var(--paper); background: var(--navy); border-color: var(--navy); }
+.section--paper .btn-editorial:hover { background: var(--cyan-deep); border-color: var(--cyan-deep); }
+
+/* Numbered editorial list (Work) */
+.work-list { margin-top: 2.5rem; }
+.work-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 2rem;
+  align-items: baseline;
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule-c);
+  text-decoration: none;
+  color: inherit;
+}
+.work-list > .work-row:last-child { border-bottom: 1px solid var(--rule-c); }
+.work-num { font-family: var(--font-mono); font-size: 0.95rem; color: var(--muted); }
+.work-title { display: block; font-family: var(--font-display); font-weight: 380; font-size: clamp(1.4rem, 2.6vw, 1.95rem); letter-spacing: -0.01em; }
+.work-desc { display: block; color: var(--muted); margin-top: 0.45rem; max-width: 56ch; line-height: 1.6; }
+.work-arrow { font-family: var(--font-mono); font-size: 1.3rem; color: var(--muted); transition: color 0.2s ease, transform 0.2s ease; }
+.work-row:hover .work-arrow { color: var(--accent); transform: translateX(4px); }
+.work-row:hover .work-title { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 6px; }
+
+@media (max-width: 640px) {
+  .work-row { grid-template-columns: 2.5rem 1fr; gap: 1.25rem; }
+  .work-arrow { display: none; }
+}
+
+/* Editorial helpers */
+.measure { max-width: 62ch; }
+.stack-sm > * + * { margin-top: 1rem; }
+.stack > * + * { margin-top: 1.6rem; }

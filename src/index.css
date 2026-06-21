@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+/* Sora is loaded once via <link> in public/index.html (deduped — was previously imported here too). */
 
 * {
   margin: 0;
@@ -40,8 +40,18 @@ a {
 button {
   cursor: pointer;
   border: none;
-  outline: none;
   font-family: inherit;
+}
+
+/* Keyboard focus: visible ring for keyboard users, suppressed for mouse/touch */
+:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 img {
@@ -50,10 +60,16 @@ img {
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
+
+/* Expand on large horizontal displays */
+@media (min-width: 1600px) { .container { max-width: 1360px; } }
+@media (min-width: 1920px) { .container { max-width: 1520px; } }
+@media (min-width: 2560px) { .container { max-width: 1760px; } }
 
 /* Custom scrollbar for dark mode */
 ::-webkit-scrollbar {
@@ -73,17 +89,13 @@ img {
   background: #2d4a6f;
 }
 
-/* Selection color */
+/* Selection color: cyan fill + navy text reads on both navy and paper */
 ::selection {
-  background: rgba(0, 212, 255, 0.4);
-  color: #ffffff;
+  background: #00d4ff;
+  color: #0a1628;
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-
   html {
     font-size: 16px;
   }
@@ -94,10 +106,6 @@ img {
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 0.75rem;
-  }
-
   html {
     font-size: 15px;
   }
@@ -105,5 +113,17 @@ img {
   /* Improve touch scrolling on iOS */
   body {
     -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Respect users who prefer reduced motion: neutralize all ambient animation */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

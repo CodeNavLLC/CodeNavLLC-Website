@@ -1,187 +1,105 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../usePageTitle';
 import './Services.css';
 
+const services = [
+  {
+    title: 'Custom AI Solutions',
+    desc: 'Local models trained for specific, targeted tasks, running on your infrastructure so your data stays yours.',
+    features: ['Task-specific model training', 'Local AI model deployment', 'AI-powered automation', 'Natural language processing', 'Computer vision'],
+    link: '/services/ai-solutions',
+  },
+  {
+    title: 'Penetration Testing',
+    desc: 'We find vulnerabilities before attackers do, then hand you the fixes. Run by certified operators.',
+    features: ['Network penetration testing', 'Web application testing', 'Social engineering assessments', 'Compliance testing', 'Detailed remediation reports'],
+    link: '/services/pentesting',
+  },
+  {
+    title: 'Software Development',
+    desc: 'Full-stack development from first prototype to production, with security designed in from the start.',
+    features: ['Web application development', 'API design and development', 'Database design', 'Cloud-native applications', 'DevOps and CI/CD'],
+    link: '/services/development',
+  },
+  {
+    title: 'Code Review',
+    desc: 'Expert analysis of your codebase for quality, security, and performance, with fixes your team can act on.',
+    features: ['Security vulnerability analysis', 'Performance optimization', 'Code quality assessment', 'Architecture review', 'Best-practice guidance'],
+    link: '/services/code-review',
+  },
+];
+
+const process = [
+  { n: '01', title: 'Discovery', desc: 'We start by understanding your requirements, constraints, and goals.' },
+  { n: '02', title: 'Design', desc: 'We shape the architecture for scale, security, and maintainability.' },
+  { n: '03', title: 'Build', desc: 'We execute with solid practices and transparent communication throughout.' },
+  { n: '04', title: 'Test & ship', desc: 'Thorough testing and a clean rollout, by the people who built it.' },
+  { n: '05', title: 'Support', desc: 'Ongoing maintenance so what we built keeps working.' },
+];
+
 const Services = () => {
-  const services = [
-    {
-      title: "Custom AI Solutions",
-      icon: "🤖",
-      description: "Tailored artificial intelligence implementations that run locally on your infrastructure, ensuring complete data privacy and control.",
-      features: [
-        "Local AI model deployment",
-        "Custom machine learning solutions", 
-        "AI-powered automation",
-        "Natural language processing",
-        "Computer vision applications"
-      ],
-      link: "/services/ai-solutions",
-      color: "blue"
-    },
-    {
-      title: "Penetration Testing",
-      icon: "🛡️",
-      description: "Comprehensive security assessments to identify vulnerabilities and strengthen your defenses against cyber threats.",
-      features: [
-        "Network penetration testing",
-        "Web application security testing",
-        "Social engineering assessments",
-        "Compliance testing",
-        "Detailed security reports"
-      ],
-      link: "/services/pentesting",
-      color: "red"
-    },
-    {
-      title: "Software Development",
-      icon: "💻",
-      description: "Full-stack development services using modern technologies to build scalable, maintainable software solutions.",
-      features: [
-        "Web application development",
-        "API design and development",
-        "Database design and optimization",
-        "Cloud-native applications",
-        "DevOps and CI/CD implementation"
-      ],
-      link: "/services/development",
-      color: "green"
-    },
-    {
-      title: "Code Review",
-      icon: "🔍",
-      description: "Expert analysis of your codebase to improve quality, security, and performance while ensuring best practices.",
-      features: [
-        "Security vulnerability analysis",
-        "Performance optimization",
-        "Code quality assessment",
-        "Architecture review",
-        "Best practices implementation"
-      ],
-      link: "/services/code-review",
-      color: "purple"
-    }
-  ];
+  usePageTitle('Services');
 
   return (
-    <div className="services-page">
-      {/* Hero Section */}
-      <section className="services-hero">
+    <div className="services-ed">
+      {/* Hero */}
+      <section className="section section--navy services-hero-ed">
         <div className="container">
-          <div className="services-hero-content">
-            <h1 className="services-title">Our Services</h1>
-            <p className="services-subtitle">
-              Comprehensive technology solutions designed to transform your business 
-              with cutting-edge AI, robust security, and expert development services.
-            </p>
-          </div>
+          <span className="eyebrow">Services</span>
+          <h1 className="display display--hero services-hero-ed__title">What we do, in detail.</h1>
+          <p className="lead">
+            Four services, one team. AI and software built to ship, and security work that
+            holds up under real attack.
+          </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="section services-grid-section">
+      {/* Service rows */}
+      <section className="section section--paper">
         <div className="container">
-          <div className="services-grid">
-            {services.map((service, index) => (
-              <div key={index} className={`service-detail-card ${service.color}`}>
-                <div className="service-header">
-                  <div className="service-icon">{service.icon}</div>
-                  <h2 className="service-title">{service.title}</h2>
+          <div className="svc-list">
+            {services.map((s, i) => (
+              <div key={s.title} className="svc-row">
+                <div className="svc-row__head">
+                  <span className="svc-num">{String(i + 1).padStart(2, '0')}</span>
+                  <h2 className="svc-title">{s.title}</h2>
+                  <p className="svc-desc">{s.desc}</p>
+                  <Link to={s.link} className="link-arrow">Read more &rarr;</Link>
                 </div>
-                
-                <p className="service-description">{service.description}</p>
-                
-                <div className="service-features">
-                  <h3>Key Features:</h3>
-                  <ul className="features-list">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="feature-item">
-                        <span className="feature-checkmark">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <Link to={service.link} className="service-cta-btn">
-                  Learn More →
-                </Link>
+                <ul className="svc-features">
+                  {s.features.map((f) => <li key={f}>{f}</li>)}
+                </ul>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="section section-light process-section">
+      {/* Process */}
+      <section className="section section--navy">
         <div className="container">
-          <h2 className="section-title text-center mb-12">Our Process</h2>
-          <div className="process-steps">
-            <div className="process-step">
-              <div className="step-number">1</div>
-              <h3 className="step-title">Discovery & Planning</h3>
-              <p className="step-description">
-                We start by understanding your unique requirements, challenges, and goals 
-                to create a tailored solution strategy.
-              </p>
-            </div>
-
-            <div className="process-step">
-              <div className="step-number">2</div>
-              <h3 className="step-title">Design & Architecture</h3>
-              <p className="step-description">
-                Our team designs the optimal solution architecture, ensuring scalability, 
-                security, and performance from the ground up.
-              </p>
-            </div>
-
-            <div className="process-step">
-              <div className="step-number">3</div>
-              <h3 className="step-title">Implementation</h3>
-              <p className="step-description">
-                We execute the project using industry best practices, maintaining 
-                transparent communication throughout the development process.
-              </p>
-            </div>
-
-            <div className="process-step">
-              <div className="step-number">4</div>
-              <h3 className="step-title">Testing & Deployment</h3>
-              <p className="step-description">
-                Comprehensive testing ensures quality and security before deployment, 
-                followed by smooth rollout and training.
-              </p>
-            </div>
-
-            <div className="process-step">
-              <div className="step-number">5</div>
-              <h3 className="step-title">Support & Maintenance</h3>
-              <p className="step-description">
-                Ongoing support and maintenance services ensure your solutions continue 
-                to perform optimally and evolve with your needs.
-              </p>
-            </div>
+          <span className="eyebrow"><span className="num">&mdash;</span> Process</span>
+          <h2 className="display display--section section-head">How an engagement runs</h2>
+          <div className="work-list">
+            {process.map((p) => (
+              <div key={p.n} className="work-row work-row--static">
+                <span className="work-num">{p.n}</span>
+                <span className="work-body">
+                  <span className="work-title">{p.title}</span>
+                  <span className="work-desc">{p.desc}</span>
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section services-cta">
+      {/* CTA */}
+      <section className="section section--paper cta-ed">
         <div className="container">
-          <div className="cta-content">
-            <h2 className="cta-title">Ready to Get Started?</h2>
-            <p className="cta-description">
-              Let's discuss your project requirements and explore how our services 
-              can help you achieve your technology goals.
-            </p>
-            <div className="cta-actions">
-              <Link to="/contact" className="btn btn-primary">
-                Schedule Consultation
-              </Link>
-              <Link to="/about" className="btn btn-secondary">
-                Learn About Our Team
-              </Link>
-            </div>
-          </div>
+          <h2 className="display display--section cta-ed__head">Not sure which you need?</h2>
+          <Link to="/contact" className="link-arrow">Start a conversation &rarr;</Link>
         </div>
       </section>
     </div>
@@ -189,4 +107,3 @@ const Services = () => {
 };
 
 export default Services;
-

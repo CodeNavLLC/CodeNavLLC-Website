@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import './styles/editorial.css';
 
 // Components
 import Header from './components/Header';
@@ -18,6 +19,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import FounderOne from './pages/FounderOne';
 import FounderTwo from './pages/FounderTwo';
+import FounderThree from './pages/FounderThree';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -37,6 +40,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/team/connor" element={<FounderOne />} />
             <Route path="/team/thomas" element={<FounderTwo />} />
+            <Route path="/team/daniel" element={<FounderThree />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

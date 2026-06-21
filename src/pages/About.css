@@ -1,652 +1,82 @@
-/* About Hero Section */
-.about-hero {
-  background: var(--bg-primary);
-  padding: 8rem 0 4rem;
-  color: var(--text-primary);
-  position: relative;
-  overflow: hidden;
-}
+/* About — editorial */
 
-.about-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0, 212, 255, 0.15), transparent),
-    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(0, 180, 216, 0.1), transparent);
-  z-index: 0;
+.about-hero-ed {
+  padding-top: clamp(4.5rem, 11vh, 8rem);
+  padding-bottom: clamp(3.5rem, 9vh, 6.5rem);
 }
+.about-hero-ed .eyebrow { display: inline-flex; margin-bottom: 2rem; }
+.about-hero-ed__title { max-width: 18ch; margin-bottom: 1.75rem; }
 
-.about-hero-content {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+.about-story {
+  max-width: 62ch;
+  margin-top: 1.5rem;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
 }
+.about-story > p + p { margin-top: 1.4rem; }
 
-.about-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-}
-
-.about-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/* Story Section */
-.story-section {
-  background: var(--bg-secondary);
-}
-
-.story-content {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.story-grid {
+/* Team grid */
+.team-ed {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: start;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.75rem;
 }
-
-.story-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-}
-
-.story-text-full {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: var(--text-secondary);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.story-paragraph {
-  margin-bottom: 1.5rem;
-}
-
-.story-founders {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-self: start;
-}
-
-.founder-link-card {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  background: var(--bg-card);
-  border-radius: 0.375rem;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.2s ease;
+.team-card-ed {
   text-decoration: none;
-  cursor: pointer;
-}
-
-.founder-link-card:hover {
-  border-color: rgba(0, 212, 255, 0.4);
-  background: var(--bg-card-hover);
-}
-
-.founder-link-card:hover .founder-arrow {
-  transform: translateX(3px);
-  color: #00d4ff;
-}
-
-.founder-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.founder-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #00d4ff !important;
-}
-
-.founder-role {
-  font-size: 0.7rem;
-  color: var(--text-secondary);
-}
-
-.founder-arrow {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  transition: all 0.2s ease;
-}
-
-/* Certifications Section */
-.certifications-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.cert-item {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.5rem;
-  background: var(--bg-card);
-  border-radius: 1rem;
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
-}
-
-.cert-item:hover {
-  transform: translateY(-3px);
-  border-color: rgba(0, 212, 255, 0.3);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-}
-
-.cert-badge {
-  min-width: 125px;
-  height: 125px;
-  background: transparent;
-  border-radius: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #00d4ff;
-  flex-shrink: 0;
-  box-shadow: none;
-  border: 1px solid var(--border-subtle);
-  padding: 0.75rem;
-}
-
-.cert-badge--logo {
-  overflow: hidden;
-}
-
-.cert-logo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.cert-badge-fallback {
-  display: inline-block;
-}
-
-.cert-badge--logo .cert-logo:not([style*="display: none"]) + .cert-badge-fallback {
-  display: none;
-}
-
-.cert-details h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
-}
-
-.cert-details p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  margin: 0;
-}
-
-/* Values Section */
-.values-section {
-  background: var(--bg-primary);
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.value-card {
-  background: var(--bg-card);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-subtle);
-  text-align: center;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.value-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--gradient-primary);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.value-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--border-hover);
-}
-
-.value-card:hover::before {
-  opacity: 1;
-}
-
-.value-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
+  color: inherit;
   display: block;
-  filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.4));
 }
-
-.value-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-}
-
-.value-description {
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* Team Section */
-.team-section {
-  background: var(--bg-secondary);
-}
-
-.team-story-section {
-  background: var(--bg-secondary);
-}
-
-.team-story-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.team-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.team-story-team .team-card {
-  padding: 1.75rem;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 3rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.team-card {
-  background: var(--bg-card);
-  padding: 2.5rem;
-  border-radius: 1rem;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-subtle);
-  transition: all 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--border-hover);
-}
-
-.team-image {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.team-avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00d4ff, #0891b2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #0a1628;
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-}
-
-.team-photo-wrap {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  overflow: hidden;
-  --photo-scale: 1.06;
-  --photo-y: 12%;
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-  border: 3px solid rgba(0, 212, 255, 0.3);
-  transition: box-shadow 0.3s ease, border-color 0.3s ease;
-}
-
-.team-photo-img {
+.team-photo-ed {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center var(--photo-y);
-  transform: scale(var(--photo-scale));
-  transition: transform 0.3s ease;
-}
-
-.team-photo-wrap--connor {
-  --photo-scale: 1.2;
-  --photo-y: 10%;
-}
-
-.team-photo-wrap--thomas {
-  --photo-scale: 1.00;
-  --photo-y: 14%;
-}
-
-.team-card-link {
-  text-decoration: none;
-  cursor: pointer;
+  object-position: center 18%;
+  filter: grayscale(100%) contrast(1.03);
+  border: 1px solid var(--rule-c);
   display: block;
+  transition: filter 0.35s ease;
 }
-
-.team-card-link:hover .team-photo-wrap {
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
-  border-color: rgba(0, 212, 255, 0.6);
-}
-
-.team-card-link:hover .team-photo-img {
-  transform: scale(calc(var(--photo-scale) + 0.03));
-}
-
-.team-card-link:hover .team-name {
-  color: #00d4ff;
-}
-
-.team-info {
-  text-align: center;
-}
-
-.team-name {
+.team-card-ed:hover .team-photo-ed { filter: grayscale(0); }
+.team-name-ed {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 440;
   font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  margin-top: 1.1rem;
 }
-
-.team-role {
-  color: var(--primary-light);
-  font-weight: 500;
-  margin-bottom: 1rem;
-}
-
-.team-bio {
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.team-link {
-  color: var(--primary-light);
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex;
+.team-role-ed {
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: all 0.2s ease;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 0.4rem;
 }
+.team-card-ed:hover .team-role-ed { color: var(--cyan); }
 
-.team-link:hover {
-  color: var(--accent-cyan);
-  transform: translateX(5px);
-}
-
-/* CTA Section */
-.about-cta {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-cta::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 212, 255, 0.12), transparent);
-}
-
-.cta-content {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.cta-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.cta-description {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin-bottom: 2.5rem;
+/* Credentials */
+.credentials-note {
+  max-width: 54ch;
+  color: var(--ink-soft);
   line-height: 1.7;
+  margin-top: 0.5rem;
 }
-
-.cta-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .story-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .story-founders {
-    justify-self: center;
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    max-width: 500px;
-  }
-
-  .team-story-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    max-width: 900px;
-  }
+.credentials-line {
+  font-family: var(--font-mono);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-c);
 }
 
 @media (max-width: 768px) {
-  .about-hero {
-    padding: 6rem 0 3rem;
-  }
-
-  .about-title {
-    font-size: 2.25rem;
-  }
-
-  .about-subtitle {
-    font-size: 1.125rem;
-  }
-
-  .story-founders {
-    gap: 1rem;
-  }
-
-  .founder-link-card {
-    padding: 1rem;
-    min-height: 44px;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .value-card {
-    padding: 2rem;
-  }
-
-  .certifications-list {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .cert-item {
-    padding: 1.25rem;
-    gap: 1rem;
-  }
-
-  .cert-badge {
-    min-width: 110px;
-    height: 110px;
-  }
-
-  .team-photo-wrap {
-    width: 160px;
-    height: 160px;
-  }
-
-  .team-card {
-    padding: 2rem;
-  }
-
-  .cta-title {
-    font-size: 2rem;
-  }
-
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-hero {
-    padding: 5rem 0 2rem;
-  }
-
-  .about-title {
-    font-size: 1.75rem;
-  }
-
-  .about-subtitle {
-    font-size: 1rem;
-  }
-
-  .story-text {
-    font-size: 1rem;
-  }
-
-  .story-paragraph {
-    margin-bottom: 1rem;
-  }
-
-  .team-story-grid {
-    gap: 2rem;
-  }
-
-  .section-title {
-    font-size: 1.5rem;
-  }
-
-  .cert-item {
-    flex-direction: column;
-    text-align: center;
-    padding: 1.25rem;
-    gap: 1rem;
-  }
-
-  .cert-badge {
-    min-width: 100px;
-    height: 100px;
-  }
-
-  .cert-details h3 {
-    font-size: 1rem;
-  }
-
-  .cert-details p {
-    font-size: 0.85rem;
-  }
-
-  .value-card,
-  .team-card {
-    padding: 1.25rem;
-  }
-
-  .value-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .value-title {
-    font-size: 1.1rem;
-  }
-
-  .team-photo-wrap {
-    width: 140px;
-    height: 140px;
-  }
-
-  .team-name {
-    font-size: 1.25rem;
-  }
-
-  .team-role {
-    font-size: 0.9rem;
-  }
-
-  .cta-title {
-    font-size: 1.5rem;
-  }
-
-  .cta-description {
-    font-size: 1rem;
-  }
+  .team-ed { grid-template-columns: 1fr; gap: 2rem; max-width: 360px; }
 }

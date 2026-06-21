@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageTitle from '../usePageTitle';
 import './ServicePage.css';
 
 const Development = () => {
+  usePageTitle('Software Development');
+
   return (
     <div className="service-page">
       <section className="service-hero dev-hero">
         <div className="container">
           <div className="service-hero-content">
+            <span className="service-hero-eyebrow">Service / Software Development</span>
             <h1 className="service-hero-title">Software Development</h1>
             <p className="service-hero-subtitle">
-              Full-stack development services using modern technologies to build 
-              scalable, maintainable software solutions that drive business growth.
+              Full-stack development from first prototype to production, with security
+              designed in from the start.
             </p>
           </div>
         </div>
@@ -52,11 +56,11 @@ const Development = () => {
               <div className="service-card">
                 <h3>Key Benefits</h3>
                 <ul>
-                  <li>💻 Modern technology stack</li>
-                  <li>💻 Scalable architecture</li>
-                  <li>💻 Security-first approach</li>
-                  <li>💻 Agile development</li>
-                  <li>💻 Ongoing support</li>
+                  <li>Modern technology stack</li>
+                  <li>Scalable architecture</li>
+                  <li>Security-first approach</li>
+                  <li>Agile development</li>
+                  <li>Ongoing support</li>
                 </ul>
               </div>
 

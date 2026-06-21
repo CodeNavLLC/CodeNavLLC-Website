@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Mail, ExternalLink, Check, Trophy, Medal } from 'lucide-react';
+import usePageTitle from '../usePageTitle';
 import './Founder.css';
 
 const FounderOne = () => {
+  usePageTitle('Connor Bluestein');
   const certifications = [
     {
       name: "CompTIA Security+",
@@ -14,7 +17,7 @@ const FounderOne = () => {
       name: "Google Professional IT Certification",
       issuer: "Google",
       year: "",
-      description: "Comprehensive IT support and systems administration certification"
+      description: "Full IT support and systems administration certification"
     }
   ];
 
@@ -68,10 +71,10 @@ const FounderOne = () => {
             </p>
             <div className="founder-contact">
               <a href="mailto:connor@codenavllc.com" className="contact-link">
-                📧 connor@codenavllc.com
+                <Mail size={18} aria-hidden="true" /> connor@codenavllc.com
               </a>
-              <a href="https://linkedin.com/in/connorbluestein" className="contact-link">
-                🔗 LinkedIn
+              <a href="https://linkedin.com/in/connorbluestein" target="_blank" rel="noopener noreferrer" className="contact-link">
+                <ExternalLink size={18} aria-hidden="true" /> LinkedIn
               </a>
             </div>
           </div>
@@ -83,7 +86,7 @@ const FounderOne = () => {
           <div className="expertise-grid">
             {expertise.map((skill, index) => (
               <div key={index} className="expertise-item">
-                <span className="expertise-icon">✓</span>
+                <span className="expertise-icon"><Check size={14} aria-hidden="true" /></span>
                 {skill}
               </div>
             ))}
@@ -182,7 +185,7 @@ const FounderOne = () => {
           <h3 className="section-heading">Competition Achievements & Leadership</h3>
           <div className="achievements-grid">
             <div className="achievement-category">
-              <h4 className="achievement-title">🏆 First Place Victories</h4>
+              <h4 className="achievement-title"><Trophy size={20} aria-hidden="true" /> First Place Victories</h4>
               <ul className="achievement-list">
                 <li>DEF CON Red Team Rumble</li>
                 <li>U.S. Army Central Command Best Cyber Warrior</li>
@@ -192,7 +195,7 @@ const FounderOne = () => {
               </ul>
             </div>
             <div className="achievement-category">
-              <h4 className="achievement-title">🎖️ Leadership Positions</h4>
+              <h4 className="achievement-title"><Medal size={20} aria-hidden="true" /> Leadership Positions</h4>
               <ul className="achievement-list">
                 <li>President - Cyber Security Club, Virginia Tech (550+ members)</li>
                 <li>Cyber Team Officer in Charge - VA Tech Corps of Cadets</li>
