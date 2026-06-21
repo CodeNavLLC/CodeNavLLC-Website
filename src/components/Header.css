@@ -7,6 +7,12 @@
   background: var(--navy);
   border-bottom: 1px solid var(--rule-navy);
   z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.header .container {
+  width: 100%;
 }
 
 .nav {
