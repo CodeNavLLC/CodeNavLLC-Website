@@ -6,17 +6,16 @@ import './Founder.css';
 
 /*
   ⚠️ UNVERIFIED — confirm with Daniel before treating any of the below as final copy.
-  Sourced from public pages (arcadiagroupus.com team page, Virginia Tech news, LinkedIn
-  headline) for a "Senior Developer" addition. The page intentionally renders only
-  general, defensible statements; the specifics below are NOT rendered as fact and must
-  be confirmed/corrected by Daniel:
+  Sourced from public pages (Virginia Tech news, LinkedIn headline) for a "Senior
+  Developer" addition. The page intentionally renders only general, defensible
+  statements; the specifics below are NOT rendered as fact and must be
+  confirmed/corrected by Daniel:
 
     [ ] Exact degree title, major, and graduation year at Virginia Tech
     [ ] GPA / honors (none asserted on the page — add only if Daniel confirms)
     [x] RTX (Raytheon) title — owner-provided: "AI/ML Cybersecurity Engineer" (confirm team/dates)
-    [ ] Exact Arcadia title (their site lists "Lead Product Engineer")
     [ ] Contact email daniel@codenavllc.com (assumed from the team convention)
-    [ ] Permission to use the headshot sourced from arcadiagroupus.com
+    [ ] Permission to use the headshot
 */
 
 const FounderThree = () => {
@@ -56,8 +55,8 @@ const FounderThree = () => {
               from requirements through implementation and the iteration that follows launch.
               He studied at Virginia Tech through its National Security Institute, with a focus
               on cybersecurity, and worked as an AI/ML cybersecurity engineer at RTX (Raytheon).
-              At Arcadia he owns AI product features, and at CodeNav he brings that mix of AI,
-              full-stack, and security experience to client projects.
+              At CodeNav he brings that mix of AI, full-stack, and security experience to
+              client projects.
             </p>
             <div className="founder-contact">
               <a href="mailto:daniel@codenavllc.com" className="contact-link">
@@ -117,17 +116,6 @@ const FounderThree = () => {
               <p className="experience-description">
                 Builds AI-driven and full-stack software for client engagements, taking
                 features from requirements through delivery and post-launch iteration.
-              </p>
-            </div>
-
-            <div className="experience-item">
-              <div className="experience-header">
-                <h4>Product Engineer &mdash; AI Features</h4>
-              </div>
-              <p className="experience-company">Arcadia</p>
-              <p className="experience-description">
-                Owns AI features end to end, from client requirements through implementation
-                and the iteration that follows launch.
               </p>
             </div>
 
